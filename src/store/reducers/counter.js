@@ -1,25 +1,29 @@
+import {
+    INC_COUNTER, DEC_COUNTER, SUBTRACT_COUNTER, ADD_COUNTER
+} from '../actions-constants';
+
 const initialState = {
-    counter: 0,
+    counter: 0
 };
 
-const reducer = (state = initialState, action) => {
+const counterReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'INC_COUNTER':
+        case INC_COUNTER:
             return {
                 ...state,
                 counter: state.counter + 1,
             }
-        case 'DEC_COUNTER':
+        case DEC_COUNTER:
             return {
                 ...state,
                 counter: state.counter - 1,
             }
-        case 'ADD_COUNTER':
+        case ADD_COUNTER:
             return {
                 ...state,
                 counter: state.counter + action.value,
             }
-        case 'SUBTRACT_COUNTER':
+        case SUBTRACT_COUNTER:
             return {
                 ...state,
                 counter: state.counter - action.value,
@@ -28,4 +32,4 @@ const reducer = (state = initialState, action) => {
     return state;
 };
 
-export default reducer;
+export default counterReducer;
