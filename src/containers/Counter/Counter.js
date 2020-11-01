@@ -1,12 +1,12 @@
-import React, { Component, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
-import {
-    incCounter, decCounter, addCtr, subtractCtr,
-    STORE_RESULT, DELETE_RESULT, storeResult, deleteResult
-} from '../../store/actions/actions';
+import { incCounter, decCounter, addCtr, subtractCtr }
+    from '../../store/actions/actions.counter';
+import { storeResult, deleteResult } from '../../store/actions/actions.results';
+
 
 const Counter = () => {
     // Accessing state as props using selector hook 

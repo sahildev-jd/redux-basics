@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import counterReducer from './store/reducers/counter';
-import resultReducer from './store/reducers/result';
+import counterReducer from './store/reducers/reducer.counter';
+import resultReducer from './store/reducers/reducer.result';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
     resultReducer
 })
 
+// Logger Middleware
 const logger = store => {
     return next => {
         return action => {
