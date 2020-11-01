@@ -7,6 +7,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import counterReducer from './store/reducers/counter';
 import resultReducer from './store/reducers/result';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
     counterReducer,
@@ -31,7 +32,7 @@ const store = createStore(
     rootReducer,
     composeEnhancers(
         // Can pass multiple middlewares ',' separated
-        applyMiddleware(logger),
+        applyMiddleware(logger, thunk),
     )
 );
 
