@@ -4,9 +4,9 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 import {
-    INC_COUNTER, DEC_COUNTER, SUBTRACT_COUNTER, ADD_COUNTER,
-    STORE_RESULT, DELETE_RESULT
-} from '../../store/actions-constants';
+    incCounter, decCounter, addCtr, subtractCtr,
+    STORE_RESULT, DELETE_RESULT, storeResult, deleteResult
+} from '../../store/actions/actions';
 
 const Counter = () => {
     // Accessing state as props using selector hook 
@@ -16,23 +16,23 @@ const Counter = () => {
     const dispatch = useDispatch();
 
     const incrementCounter = useCallback(() => {
-        dispatch({ type: INC_COUNTER });
+        dispatch(incCounter());
     }, [dispatch]);
     const decrementCounter = useCallback(() => {
-        dispatch({ type: DEC_COUNTER });
+        dispatch(decCounter());
     }, [dispatch]);
     const addCounter = useCallback((val) => {
-        dispatch({ type: ADD_COUNTER, value: val });
+        dispatch(addCtr(val));
     }, [dispatch]);
     const subtractCounter = useCallback((val) => {
-        dispatch({ type: SUBTRACT_COUNTER, value: val });
+        dispatch(subtractCtr(val));
     }, [dispatch]);
 
     const onStoreResult = useCallback(() => {
-        dispatch({ type: STORE_RESULT, value: ctr });
+        dispatch(storeResult(ctr));
     }, [dispatch, ctr]);
     const onDeleteResult = useCallback((i) => {
-        dispatch({ type: DELETE_RESULT, idx: i });
+        dispatch(deleteResult(i));
     }, [dispatch]);
 
     const counterChangedHandler = (action, value) => {

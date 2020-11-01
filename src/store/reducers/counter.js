@@ -1,6 +1,6 @@
 import {
     INC_COUNTER, DEC_COUNTER, SUBTRACT_COUNTER, ADD_COUNTER
-} from '../actions-constants';
+} from '../actions/actions';
 
 const initialState = {
     counter: 0

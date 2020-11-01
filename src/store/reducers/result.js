@@ -1,6 +1,6 @@
 import {
     STORE_RESULT, DELETE_RESULT
-} from '../actions-constants';
+} from '../actions/actions';
 
 const initialState = {
     results: []
